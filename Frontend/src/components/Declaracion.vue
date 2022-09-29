@@ -16,14 +16,14 @@
                     v-bind="attrs"
                     v-on="on"
                   >
-                    Agregar Ponencias
+                    Agregar Nueva declaracion
                   </v-btn>
                   &zwnj; &zwnj;
                 </template>
                 <v-card>
                   <br>
                   <v-card-title>
-                    <span class="text-h5 mx-auto">PONENCIAS</span>
+                    <span class="text-h5 mx-auto">Nueva Declaracion</span>
                   </v-card-title>
                   <v-card-text class="text-h6 text-center">
 
@@ -31,7 +31,31 @@
                       class="mx-10"
                       v-model='newTask.topico'
                       :rules="nameRules"
-                      label="Topico"
+                      label="Tipo"
+                      required
+                    ></v-text-field>
+
+                    <v-text-field
+                      class="mx-10"
+                      v-model='newTask.topico'
+                      :rules="nameRules"
+                      label="Titulo"
+                      required
+                    ></v-text-field>
+
+                    <v-text-field
+                      class="mx-10"
+                      v-model='newTask.topico'
+                      :rules="nameRules"
+                      label="Sujeto"
+                      required
+                    ></v-text-field>
+
+                    <v-text-field
+                      class="mx-10"
+                      v-model='newTask.topico'
+                      :rules="nameRules"
+                      label="Audio"
                       required
                     ></v-text-field>
     
@@ -59,46 +83,60 @@
               </v-btn>
             </v-row>
     
-          <v-layout row wrap align>
-              <v-card
-              height="650" text-h4 class="mx-auto my-2 text-center" width="1600" outlined elevation="20">
-              <v-simple-table>
-                <template v-slot:default>
-                  <thead>
-                    <tr>
-                      <th class="text-center">
-                        ID
-                      </th>
-                      <th class="text-center">
-                        Topico
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                      v-for="task in tasks" :key="task"
-                    >
-                        <td>{{ task.id_pon }} </td>
-                        <td>{{ task.topico }} </td>
-                        <td><v-btn
-                            small
-                            color="error"
-                            dark
-                            class="grey  mx-2"
-                            v-on:click='deleteTask(task)'
-                            @click="messages--"
-                          >
-                            <v-icon dark>
-                              mdi-delete
-                            </v-icon>
-                          </v-btn>
-                          </td>
-                    </tr>
-                  </tbody>
-                </template>
-              </v-simple-table>
-              </v-card>
-          </v-layout>
+            <v-card
+              class="mx-auto"
+              max-width="1000"
+            >
+              <v-card-text>
+                <div>Tipo de declaracion</div>
+                <p class="text-h4 text--primary">
+                  Titulo
+                </p>
+                <p>Sujeto</p>
+                <div class="text--primary">
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.".
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.". 
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.". 
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.". 
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.". 
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.". 
+                </div>
+              </v-card-text>
+            </v-card>
+
+            <v-card
+              class="mx-auto"
+              max-width="1000"
+            >
+              <v-card-text>
+                <div>Tipo de declaracion</div>
+                <p class="text-h4 text--primary">
+                  Titulo
+                </p>
+                <p>Sujeto</p>
+                <div class="text--primary">
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.".
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.". 
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.". 
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.". 
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.". 
+                  relating to or dependent on charity; charitable.
+                  "an eleemosynary educational institution.". 
+                </div>
+              </v-card-text>
+            </v-card>
+      
       </v-container>
       </v-main>
     </v-app>
