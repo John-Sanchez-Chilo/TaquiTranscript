@@ -1,344 +1,88 @@
 <template>
-    <v-app>
-      <v-main class="light-blue darken-4">
-        <v-row>
-          <v-col
-          cols="12"
-          sm="4"
-          >
-            <v-card
-            align="center" 
-              elevation="24"
-              width="550"
-              class="mx-auto"
-            >
-              <v-system-bar lights-out></v-system-bar>
-            
-              <v-img
-                lazy-src="https://live.staticflickr.com/65535/52317869177_947acfe4de_c.jpg"
-                max-height="400"
-                max-width="450"
-                src="https://live.staticflickr.com/65535/52317869177_947acfe4de_c.jpg"
-                ></v-img>
-              <v-list two-line>
-                <v-list-item>
-                  <v-list-item-content>
-                    <v-list-item-title><p> {{tasks[0].nombre}} </p></v-list-item-title>
-                    <v-list-item-subtitle>{{tasks[0].descripcion}} </v-list-item-subtitle>
-                    <p class="text-caption"> {{tasks[0].fecha}}  </p>
-                    <v-card-title class="mx-5">
-                      <v-btn
-                      link @click="setmeet"
-                      >
-                        Enlace: {{tasks[0].enlace_reu}}
-                      </v-btn>
-                    </v-card-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
+  <v-app light>
+    <v-main class="">
+    <v-content>
+      <section>
+        <v-parallax src="https://i.blogs.es/8ad7c5/notebook_work_girl_computer_woman_operator_design_business-1407325/1366_2000.jpg" height="700">
+          <v-layout column align-center justify-center class="white--text">
+            <h1 class="white--text mb-2 display-1 text-xs-center" style="font-weight: 900; text-shadow: 3px 2px #000000">La herramienta de trabajo para taquigrafos judiciales</h1>
+            <div class="white--text subheading mb-3 text-xs-center" style="font-weight: 900; text-shadow: 2px 2px #000000">Deja que Taquitranscript se encargue de todo y relajate</div>
+            <v-btn class="blue lighten-2 mt-5" dark large link @click="$router.push({ path: '/login' })">
+              Empieza ahora
+            </v-btn>
+          </v-layout>
+        </v-parallax>
+      </section>
 
-          <v-col
-          cols="12"
-          sm="4"
-          >
-            <v-card
-            align="center" 
-              elevation="24"
-              width="550"
-              class="mx-auto"
-            >
-              <v-system-bar lights-out></v-system-bar>
-              <v-img
-                lazy-src="https://live.staticflickr.com/65535/52320142909_9f4cb9a6fa_z.jpg"
-                max-height="400"
-                max-width="450"
-                src="https://live.staticflickr.com/65535/52320142909_9f4cb9a6fa_z.jpg"
-                ></v-img>
-              <v-list two-line>
-                <v-list-item>
-                  <v-list-item-content>
-                    <v-list-item-title><p> {{tasks[1].nombre}} </p></v-list-item-title>
-                    <v-list-item-subtitle>{{tasks[1].descripcion}} </v-list-item-subtitle>
-                    <p class="text-caption"> {{tasks[1].fecha}}  </p>
-                    <v-card-title class="mx-5">
-                      <v-btn
-                      link @click="setmeet"
-                      >
-                        Enlace: {{tasks[1].enlace_reu}}
-                      </v-btn>
+      <section>
+        <v-layout
+          column
+          wrap
+          class="my-5"
+          align-center
+        >
+          <v-flex xs12 sm4 class="my-3">
+            <div class="text-xs-center">
+              <h2 class="headline">La mejor manera de almacenar tus transcripciones</h2>
+              <span class="subheading">
+                No mas restricciones, no mas limites
+              </span>
+            </div>
+          </v-flex>
+          <v-flex xs12>
+            <v-container grid-list-xl>
+              <v-layout row wrap align-center>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text class="text-xs-center">
+                      <v-icon x-large class="blue--text text--lighten-2">public</v-icon>
+                    </v-card-text>
+                    <v-card-title primary-title class="layout justify-center">
+                      <div class="headline text-xs-center">Entorno amigable</div>
                     </v-card-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
-  
-          <v-col
-          cols="12"
-          sm="4"
-          >
-            <v-card
-            align="center" 
-              elevation="24"
-              width="550"
-              class="mx-auto"
-            >
-              <v-system-bar lights-out></v-system-bar>
-              <v-img
-                lazy-src="https://live.staticflickr.com/65535/52320159650_48eaf1641d_c.jpg"
-                max-height="400"
-                max-width="450"
-                src="https://live.staticflickr.com/65535/52320159650_48eaf1641d_c.jpg"
-                ></v-img>
-              <v-list two-line>
-                <v-list-item>
-                  <v-list-item-content>
-                    <v-list-item-title><p> {{tasks[2].nombre}} </p></v-list-item-title>
-                    <v-list-item-subtitle>{{tasks[2].descripcion}} </v-list-item-subtitle>
-                    <p class="text-caption"> {{tasks[2].fecha}}  </p>
-                    <v-card-title class="mx-5">
-                      <v-btn
-                      link @click="setmeet"
-                      >
-                        Enlace: {{tasks[2].enlace_reu}}
-                      </v-btn>
+                    <v-card-text>
+                      Nuestro software esta destinado a los taquigrafos judiciales, y esta pensado y creado con una interfaz sencilla y amigable facilitando su uso. De esta forma, los nuevos usuarios pueden aprender rapidamente su fucionamiento
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text class="text-xs-center">
+                      <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
+                    </v-card-text>
+                    <v-card-title primary-title class="layout justify-center">
+                      <div class="headline">Transcripciones precisas</div>
                     </v-card-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
-        </v-row>
-  
+                    <v-card-text>
+                      Nuestro software hace uso del servicio de Amazon (AWS) el cual se encarga de hacer las transcripciones mas precisas a  partir de los audios que recibe. De esta manera no tendras que pasar largas horas escuchando y escribiendo tus audios
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text class="text-xs-center">
+                      <v-icon x-large class="blue--text text--lighten-2">share</v-icon>
+                    </v-card-text>
+                    <v-card-title primary-title class="layout justify-center">
+                      <div class="headline text-xs-center">Almacenamiento eficaz</div>
+                    </v-card-title>
+                    <v-card-text>
+                      Gracias a nuestra interfaz amigable, se puede acceder a los diferentes transcripciones almacenadas, ingresando a estas a traves de filtros de acceso rapido y divisiones a travès de casos, sesiones, participantes y declaraciones. 
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-flex>
+        </v-layout>
+      </section>
+    </v-content>
+  </v-main>
+</v-app>
+</template>
 
-        <v-row>
-          <v-col
-          cols="12"
-          sm="4"
-          >
-            <v-card
-            align="center" 
-              elevation="24"
-              width="550"
-              class="mx-auto"
-            >
-              <v-system-bar lights-out></v-system-bar>
-              <v-img
-                lazy-src="https://live.staticflickr.com/65535/52319093509_e49455a1c5_c.jpg"
-                max-height="400"
-                max-width="450"
-                src="https://live.staticflickr.com/65535/52319093509_e49455a1c5_c.jpg"
-                ></v-img>
-              <v-list two-line>
-                <v-list-item>
-                  <v-list-item-content>
-                    <v-list-item-title><p> {{tasks[3].nombre}} </p></v-list-item-title>
-                    <v-list-item-subtitle>{{tasks[3].descripcion}} </v-list-item-subtitle>
-                    <p class="text-caption"> {{tasks[3].fecha}}  </p>
-                    <v-card-title class="mx-5">
-                      <v-btn
-                      link @click="setmeet"
-                      >
-                        Enlace: {{tasks[3].enlace_reu}}
-                      </v-btn>
-                    </v-card-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
 
-          <v-col
-          cols="12"
-          sm="4"
-          >
-            <v-card
-            align="center" 
-              elevation="24"
-              width="550"
-              class="mx-auto"
-            >
-              <v-system-bar lights-out></v-system-bar>
-              <v-img
-                lazy-src="https://live.staticflickr.com/65535/52319093554_b57eb9c125_c.jpg"
-                max-height="400"
-                max-width="450"
-                src="https://live.staticflickr.com/65535/52319093554_b57eb9c125_c.jpg"
-                ></v-img>
-              <v-list two-line>
-                <v-list-item>
-                  <v-list-item-content>
-                    <v-list-item-title><p> {{tasks[4].nombre}} </p></v-list-item-title>
-                    <v-list-item-subtitle>{{tasks[4].descripcion}} </v-list-item-subtitle>
-                    <p class="text-caption"> {{tasks[4].fecha}}  </p>
-                    <v-card-title class="mx-5">
-                      <v-btn
-                      link @click="setmeet"
-                      >
-                        Enlace: {{tasks[4].enlace_reu}}
-                      </v-btn>
-                    </v-card-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
-  
-          <v-col
-          cols="12"
-          sm="4"
-          >
-            <v-card
-            align="center" 
-              elevation="24"
-              width="550"
-              class="mx-auto"
-            >
-              <v-system-bar lights-out></v-system-bar>
-              <v-img
-                lazy-src="https://live.staticflickr.com/65535/52318670561_ab0744784d_b.jpg"
-                max-height="400"
-                max-width="450"
-                src="https://live.staticflickr.com/65535/52318670561_ab0744784d_b.jpg"
-                ></v-img>
-              <v-list two-line>
-                <v-list-item>
-                  <v-list-item-content>
-                    <v-list-item-title><p> {{tasks[5].nombre}} </p></v-list-item-title>
-                    <v-list-item-subtitle>{{tasks[5].descripcion}} </v-list-item-subtitle>
-                    <p class="text-caption"> {{tasks[5].fecha}}  </p>
-                    <v-card-title class="mx-5">
-                      <v-btn
-                      link @click="setmeet"
-                      >
-                        Enlace: {{tasks[0].enlace_reu}}
-                      </v-btn>
-                    </v-card-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
-        </v-row>
-  
-  
-  
-        <v-row>
-          <v-col
-          cols="12"
-          sm="4"
-          >
-            <v-card
-            align="center" 
-              elevation="24"
-              width="550"
-              class="mx-auto"
-            >
-              <v-system-bar lights-out></v-system-bar>
-              <v-img
-                lazy-src="https://live.staticflickr.com/65535/52317869302_e8d492c2c8_z.jpg"
-                max-height="400"
-                max-width="450"
-                src="https://live.staticflickr.com/65535/52317869302_e8d492c2c8_z.jpg"
-                ></v-img>
-              <v-list two-line>
-                <v-list-item>
-                  <v-list-item-content>
-                    <v-list-item-title><p> {{tasks[6].nombre}} </p></v-list-item-title>
-                    <v-list-item-subtitle>{{tasks[6].descripcion}} </v-list-item-subtitle>
-                    <p class="text-caption"> {{tasks[6].fecha}}  </p>
-                    <v-card-title class="mx-5">
-                      <v-btn
-                      link @click="setmeet"
 
-                      >
-                        Enlace: {{tasks[6].enlace_reu}}
-                      </v-btn>
-                    </v-card-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
-
-          <v-col
-          cols="12"
-          sm="4"
-          >
-            <v-card
-            align="center" 
-              elevation="24"
-              width="550"
-              class="mx-auto"
-            >
-              <v-system-bar lights-out></v-system-bar>
-              <v-img
-                lazy-src="https://live.staticflickr.com/65535/52318980188_053d054773_m.jpg"
-                max-height="400"
-                max-width="450"
-                src="https://live.staticflickr.com/65535/52318980188_053d054773_m.jpg"
-                ></v-img>
-              <v-list two-line>
-                <v-list-item>
-                  <v-list-item-content>
-                    <v-list-item-title><p> {{tasks[7].nombre}} </p></v-list-item-title>
-                    <v-list-item-subtitle>{{tasks[7].descripcion}} </v-list-item-subtitle>
-                    <p class="text-caption"> {{tasks[7].fecha}}  </p>
-                    <v-card-title class="mx-5">
-                      <v-btn
-                      link @click="setmeet"
-                      >
-                        Enlace: {{tasks[7].enlace_reu}}
-                      </v-btn>
-                    </v-card-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
-  
-          <v-col
-          cols="12"
-          sm="4"
-          >
-            <v-card
-            align="center" 
-              elevation="24"
-              width="550"
-              class="mx-auto"
-            >
-              <v-system-bar lights-out></v-system-bar>
-              <v-img
-                lazy-src="https://live.staticflickr.com/65535/52318980208_87d313587c_c.jpg"
-                max-height="400"
-                max-width="450"
-                src="https://live.staticflickr.com/65535/52318980208_87d313587c_c.jpg"
-                ></v-img>
-              <v-list two-line>
-                <v-list-item>
-                  <v-list-item-content>
-                    <v-list-item-title><p> {{tasks[8].nombre}} </p></v-list-item-title>
-                    <v-list-item-subtitle>{{tasks[8].descripcion}} </v-list-item-subtitle>
-                    <p class="text-caption"> {{tasks[8].fecha}}  </p>
-                    <v-card-title class="mx-5">
-                      <v-btn
-                      link @click="setmeet"
-                      >
-                        Enlace: {{tasks[8].enlace_reu}}
-                      </v-btn>
-                    </v-card-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
-        </v-row>
-  
-      </v-main>
-    </v-app>
-  </template>
   
   
   <script>
