@@ -87,10 +87,10 @@
                     <tr
                       v-for="task in tasks" :key="task"
                     >   
-                        <td>{{ task.id_pon }} </td>
-                        <td>{{ "Nombres" }} </td>
-                        <td>{{ "Apellidos" }} </td>
-                        <td>{{ "Testigo" }} </td>
+                        <td>{{ task.id_participante }} </td>
+                        <td>{{ task.nombre }} </td>
+                        <td>{{ task.ape_paterno }} </td>
+                        <td>{{ task.tipo }} </td>
                         <td><v-btn
                             small
                             color="error"
@@ -125,7 +125,7 @@
             return { 
                 tasks: [],
                 newTask: {},
-                postURL: 'https://backendsecosystem.herokuapp.com',
+                postURL: 'https://backend-taquitranscript.herokuapp.com',
                 config_request: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
@@ -134,7 +134,7 @@
         },
         methods:{
             addTask(){ 
-                axios.post(this.postURL + '/panel/add_panel', this.newTask, this.config_request)
+                axios.post(this.postURL + '/participante/add_participante', this.newTask, this.config_request)
                     .then(res => {                                         
                         this.tasks.push(res.data);
                         console.log(res.data)        ;
@@ -147,7 +147,7 @@
             },
     
             deleteTask(task){                      
-                axios.post(this.postURL + '/panel/delete_panel', {ID_Panel: task.id_pan}, this.config_request)
+                axios.post(this.postURL + '/participante/delete_participante', {id_participante: task.id_participante}, this.config_request)
                     .then(() => {                      
                         this.tasks.splice(this.tasks.indexOf(task), 1);                    
                     })
@@ -161,7 +161,7 @@
         },
     
         created(){ 
-            axios.post(this.postURL + '/panel/get_panels')
+            axios.post(this.postURL + '/participante/get_participantes')
                 .then(res => { this.tasks = res.data; })
                 .catch((error) => { console.log(error) })
         }
