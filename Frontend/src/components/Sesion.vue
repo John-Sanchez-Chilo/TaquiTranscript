@@ -91,9 +91,9 @@
                     <tr
                       v-for="task in tasks" :key="task"
                     >
-                        <td>{{ task.id_edi }} </td>
-                        <td>{{ task.anho }} </td>
-                        <td>{{ task.nombre }} </td>
+                        <td>{{ task.id_sesion }} </td>
+                        <td>{{ task.fecha }} </td>
+                        <td>{{ task.descripcion }} </td>
                         <td><v-btn
                             small
                             color="error"
@@ -127,7 +127,7 @@
             return { 
                 tasks: [],
                 newTask: {},
-                postURL: 'https://backendsecosystem.herokuapp.com',
+                postURL: 'https://backend-taquitranscript.herokuapp.com',
                 config_request: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
@@ -136,7 +136,7 @@
         },
         methods:{
             addTask(){ 
-                axios.post(this.postURL + '/edicion/add_edicion', this.newTask, this.config_request)
+                axios.post(this.postURL + '/sesion/add_sesion', this.newTask, this.config_request)
                     .then(res => {                                         
                         this.tasks.push(res.data);
                         console.log(res.data)        ;
@@ -149,7 +149,7 @@
             },
     
             deleteTask(task){                      
-                axios.post(this.postURL + '/edicion/delete_edicion', {ID_Edicion: task.id_edi}, this.config_request)
+                axios.post(this.postURL + '/sesion/delete_sesion', {ID_Edicion: task.id_edi}, this.config_request)
                     .then(() => {                      
                         this.tasks.splice(this.tasks.indexOf(task), 1);                    
                     })
@@ -163,7 +163,7 @@
         },
     
         created(){ 
-            axios.post(this.postURL + '/edicion/get_edicions')
+            axios.post(this.postURL + '/sesion/get_sesiones')
                 .then(res => { this.tasks = res.data; })
                 .catch((error) => { console.log(error) })
         }
