@@ -68,7 +68,7 @@
                     <v-btn
                       color="success"
                       class="mr-4"
-                      @click="addTask"
+                      @click="addCaso"
                     >
                       CREAR CASO
                     </v-btn>
@@ -119,12 +119,12 @@
                     <tr
                       v-for="task in tasks" :key="task"
                     >
-                        <td>{{ task.id_act }} </td>
-                        <td>{{ task.nombre }} </td>
+                        <td>{{ task.id_caso }} </td>
+                        <td>{{ task.titulo }} </td>
                         <td>{{ task.descripcion }} </td>
-                        <td>{{ task.fecha }} </td>
+                        <td>{{ task.fecha_inicio }} </td>
                         <td>{{ "-" }} </td>
-                        <td>{{ "Activo" }} </td>
+                        <td>{{ task.estado }} </td>
                         <td><v-btn
                             small
                             color="error"
@@ -132,7 +132,7 @@
                             class="grey  mx-2"
                             
                             v-on="on"
-                            link @click="$router.push({ path: '/sesion' })"
+                            @click="filterSesion(task.id_caso)"
                           >
                             <v-icon dark>
                               mdi-lead-pencil
@@ -157,10 +157,12 @@
     export default{    
         data(){ 
             return { 
+                id_cliente: 0,
+                id_caso: 0,
                 tasks: [],
                 newTask: {},
                 newTask2: {},
-                postURL: 'https://backendsecosystem.herokuapp.com',
+                postURL: 'https://backend-taquitranscript.herokuapp.com',
                 config_request: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
@@ -168,8 +170,8 @@
             }
         },
         methods:{
-            addTask(){ 
-                axios.post(this.postURL + '/actividad/add_actividad', this.newTask2, this.config_request)
+            addCaso(){ 
+                axios.post(this.postURL + '/caso/add_caso', this.newTask2, this.config_request)
                     .then(res => {                                         
                         this.tasks.push(res.data);
                         console.log(res.data);
@@ -181,8 +183,8 @@
                 this.newTask2 = {};
             },
 
-            deleteTask(task){                      
-                axios.post(this.postURL + '/actividad/delete_actividad', {CUI: task.ID_Actividad}, this.config_request)
+            deleteCaso(task){                      
+                axios.post(this.postURL + '/caso/delete_caso', {CUI: task.ID_Actividad}, this.config_request)
                     .then(() => {                      
                         this.tasks.splice(this.tasks.indexOf(task), 1);                  
                     })
@@ -192,12 +194,22 @@
             },
             reset(){                      
                 this.newTask = {};
+            },
+            filterSesion(id_caso){
+              axios.post(this.postURL+ '/sesion/get_sesion_caso',{id_caso:id_caso},this.config_request)
+                  .then(() => {
+                    this.id_caso=id_caso
+                    return this.$router.push({ path: '/sesion' })
+                  })
+                  .catch((error) => {
+                    console.log(error)
+                  })
             }
-    
+
         },
     
         created(){ 
-            axios.post(this.postURL + '/actividad/get_actividades')
+            axios.post(this.postURL + '/caso/get_casos')
                 .then(res => { this.tasks = res.data; })
                 .catch((error) => { console.log(error) })
         },
