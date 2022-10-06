@@ -13,7 +13,7 @@ task_blueprint = Blueprint('task_blueprint', __name__)
 model = TaskModel()
 
 ################# Cliente ################################
-@task_blueprint.route('/cliente/login', methods=['POST'])
+@task_blueprint.route('/cliente/login_cliente', methods=['POST'])
 @cross_origin()
 def login_cliente():
     content = model.login_cliente(request.json['correo'], request.json['contrasena'])
