@@ -15,7 +15,7 @@
                       <v-card-text class="mt-16">
                         <h1
                           class="text-center display-5 teal--blue text--blue" 
-                        >Iniciar Sesion en Seco System</h1>
+                        >Iniciar Sesion en Taquigrafo Digital</h1>
                         <div class="text-center mt-4">
                           <v-btn class="mx-2" fab color="#0000ff" outlined>
                             <v-icon>fab fa-facebook-f</v-icon>
@@ -52,7 +52,7 @@
                           v-on="on"
                           dark
                           rounded
-                          link @click="$router.push({ path: '/admin' })"
+                          link @click="$router.push({ path: '/caso' })"
                         >
                           INGRESAR
                         </v-btn>
@@ -166,7 +166,7 @@
               step: 1,
               tasks: [],
               newTask: {},
-              postURL: 'https://backendsecosystem.herokuapp.com',
+              postURL: 'https://backend-taquitranscript.herokuapp.com',
               config_request: {
                   'Content-Type': 'application/json',
                   'Access-Control-Allow-Origin': '*'
@@ -174,11 +174,12 @@
           }
       },
       props: {
-      source: String
+      source: String,
+      id_cliente: Number
       },
       methods:{
           addTask(){ 
-              axios.post(this.postURL + '/usuario/add_usuario', this.newTask, this.config_request)
+              axios.post(this.postURL + '/cliente/login_cliente', this.newTask, this.config_request)
                   .then(res => {                                         
                       this.tasks.push(res.data);
                       console.log(res.data)        ;
@@ -191,7 +192,7 @@
           },
   
           deleteTask(task){                      
-              axios.post(this.postURL + '/usuario/delete_usuario', {ID_Concurso: task.id_conc}, this.config_request)
+              axios.post(this.postURL + '/cliente/delete_cliente', {ID_Concurso: task.id_conc}, this.config_request)
                   .then(() => {                      
                       this.tasks.splice(this.tasks.indexOf(task), 1);                    
                   })
@@ -205,7 +206,7 @@
       },
   
       created(){ 
-          axios.post(this.postURL + '/usuario/get_usuarios')
+          axios.post(this.postURL + '/cliente/get_clientes')
               .then(res => { this.tasks = res.data; })
               .catch((error) => { console.log(error) })
       }
